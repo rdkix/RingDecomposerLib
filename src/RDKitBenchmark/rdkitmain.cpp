@@ -21,11 +21,11 @@
 /**
  * @file
  *
- * @brief Runtime bechmark tool for the UniqueRingFamily library and RDKit
+ * @brief Runtime bechmark tool for the UniqueRingFamily library and RDKix
  *
  * Start the tool with
  *
- *     RDKitURF -i <filename> -r <rumber of repeats> [--rc]
+ *     RDKixURF -i <filename> -r <rumber of repeats> [--rc]
  *
  * The input file must be in SMILES, SDF or DIMCAS format.
  * Number of repeats specifies the number of times the benchmark
@@ -98,10 +98,10 @@ options::variables_map parseCommandLine(int argc, char **argv) {
 template <typename T>
 struct graph_trait {};
 
-// trait for converting RDKit molecule
+// trait for converting RDKix molecule
 template<>
-struct graph_trait<const RDKit::ROMol> {
-    static std::string get_name(const RDKit::ROMol& mol)
+struct graph_trait<const RDKix::ROMol> {
+    static std::string get_name(const RDKix::ROMol& mol)
     {
       std::string name = "NO_NAME";
 
@@ -112,31 +112,31 @@ struct graph_trait<const RDKit::ROMol> {
       return name;
     }
 
-    static size_t get_nof_atoms(const RDKit::ROMol& mol)
+    static size_t get_nof_atoms(const RDKix::ROMol& mol)
     {
       return mol.getNumAtoms();
     }
 
-    static size_t get_nof_bonds(const RDKit::ROMol& mol)
+    static size_t get_nof_bonds(const RDKix::ROMol& mol)
     {
       return mol.getNumBonds();
     }
 
-    static RDKit::ConstBondIterator_ get_bonds_begin(const RDKit::ROMol& mol)
+    static RDKix::ConstBondIterator_ get_bonds_begin(const RDKix::ROMol& mol)
     {
       return mol.beginBonds();
     }
 
-    static RDKit::ConstBondIterator_ get_bonds_end(const RDKit::ROMol& mol)
+    static RDKix::ConstBondIterator_ get_bonds_end(const RDKix::ROMol& mol)
     {
       return mol.endBonds();
     }
 
-    static unsigned get_first_id(const RDKit::Bond* b) {
+    static unsigned get_first_id(const RDKix::Bond* b) {
       return b->getBeginAtomIdx();
     }
 
-    static unsigned get_second_id(const RDKit::Bond* b) {
+    static unsigned get_second_id(const RDKix::Bond* b) {
       return b->getEndAtomIdx();
     }
 };
@@ -487,17 +487,17 @@ unsigned read_and_analyze_molfile(
     unsigned repeats,
     bool rc)
 {
-  // try reading RDKit molecule depending of file suffix
-  RDKit::MolSupplier* supplier;
+  // try reading RDKix molecule depending of file suffix
+  RDKix::MolSupplier* supplier;
   if (extension == ".smi") {
-    supplier = new RDKit::SmilesMolSupplier (input, " \t", 0, 1, false, true);
+    supplier = new RDKix::SmilesMolSupplier (input, " \t", 0, 1, false, true);
   }
   else {
-    supplier = new RDKit::SDMolSupplier (input, true, true, true);
+    supplier = new RDKix::SDMolSupplier (input, true, true, true);
   }
 
   while (!supplier->atEnd()) {
-    const RDKit::ROMol* mol = supplier->next();
+    const RDKix::ROMol* mol = supplier->next();
 
     if (!mol || !analyze_molecule(*mol, repeats, rc)) {
       std::cout << datapoint_header << std::endl;

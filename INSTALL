@@ -139,21 +139,21 @@ If you don't want the wrapper to be installed, set `-DPYTHON_FLAGS="--prefix=/so
 In that case the Python tests will fail.
 
 
-C++ RDKit Benchmark
+C++ RDKix Benchmark
 ==============
 
-The C++ RDKit Benchmark is optional. It demonstrates the usage with
-RDKit and is the tool used for benchmarking the library
+The C++ RDKix Benchmark is optional. It demonstrates the usage with
+RDKix and is the tool used for benchmarking the library
 in the paper.
 
 Prerequisites
 -------------
 
-The C++ RDKit Benchmark needs [RDKit] (http://www.rdkit.org/)
+The C++ RDKix Benchmark needs [RDKix] (http://www.rdkit.org/)
 (>= 2016.03.01)
 to be installed and an C++ compiler (g++, clang++, MSCV).
-Additionally the RDKit header files
-(for example librdkit-dev package for Debian) and
+Additionally the RDKix header files
+(for example librdkix-dev package for Debian) and
 the boost header files (for example libboost-dev for Debian)
 are needed (>= 1.45).
 
@@ -161,9 +161,9 @@ Installation (Unix and macOS)
 -----------------------------
 
 Use the same commands as for Installation of the core library
-with the CMake option -DBUILD_RDKIT_BENCHMARK=ON
+with the CMake option -DBUILD_RDKIX_BENCHMARK=ON
 
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_RDKIT_BENCHMARK=ON
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_RDKIX_BENCHMARK=ON
 
 Depending on your system configuration you may have to specify
 additional options.
@@ -172,11 +172,11 @@ If the boost libraries are not in the default search path,
 change with `-DBOOST_ROOT` (see [FindBoost] (https://cmake.org/cmake/help/v3.0/module/FindBoost.html)
 for details).
 
-If the RDKit headers are not in a default search path,
+If the RDKix headers are not in a default search path,
 specify with:
 
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_RDKIT_BENCHMARK=ON -DRDKIT_INCLUDE_DIR=<path/to/your/rdkit/headers> -DRDKIT_LIB_DIR=<path/to/your/rdkit/libraries>
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_RDKIX_BENCHMARK=ON -DRDKIX_INCLUDE_DIR=<path/to/your/rdkix/headers> -DRDKIX_LIB_DIR=<path/to/your/rdkix/libraries>
 
-@warning Because of the complex dependencies the RDKit Benchmark
+@warning Because of the complex dependencies the RDKix Benchmark
 is currently untested on Windows.
 */

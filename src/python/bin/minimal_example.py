@@ -18,18 +18,18 @@
 
 from __future__ import print_function
 import py_rdl
-import rdkit.Chem
+import rdkix.Chem
 
 # p-cyclophane as URF example
-molecule = rdkit.Chem.MolFromSmiles('C1c2ccc(cc2)CCc2ccc(cc2)C1')
+molecule = rdkix.Chem.MolFromSmiles('C1c2ccc(cc2)CCc2ccc(cc2)C1')
 
 # calculation step
 data = py_rdl.Calculator.get_calculated_result(
            molecule.GetBonds(),              # pass edges
-           rdkit.Chem.Bond.GetBeginAtom,     # get first atom
-           rdkit.Chem.Bond.GetEndAtom,       # get second atom
-           rdkit.Chem.Atom.GetIdx,           # identify atom
-           rdkit.Chem.Bond.GetIdx            # identify edge
+           rdkix.Chem.Bond.GetBeginAtom,     # get first atom
+           rdkix.Chem.Bond.GetEndAtom,       # get second atom
+           rdkix.Chem.Atom.GetIdx,           # identify atom
+           rdkix.Chem.Bond.GetIdx            # identify edge
        )
 
 # iterate over URFs

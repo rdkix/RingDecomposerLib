@@ -6,8 +6,8 @@ enable_testing()
 # external options -- build example
 option(BUILD_MINIMAL_EXAMPLE "Build minimal example" OFF)
 
-# external options -- build our RDKit testing tool
-option(BUILD_RDKIT_BENCHMARK "Build the Benchmark with RDKit" OFF)
+# external options -- build our RDKix testing tool
+option(BUILD_RDKIX_BENCHMARK "Build the Benchmark with RDKix" OFF)
 
 # external options -- build python wrapper
 option(BUILD_PYTHON_WRAPPER "Build python wrapper" OFF)
@@ -24,11 +24,11 @@ endif()
 # external options -- python flags
 set(PYTHON_FLAGS "" CACHE STRING "Python flags")
 
-# external options -- rdkit include directories
-set(RDKIT_INCLUDE_DIR "" CACHE STRING "Rdkit include dir")
+# external options -- rdkix include directories
+set(RDKIX_INCLUDE_DIR "" CACHE STRING "Rdkix include dir")
 
-# external options -- rdkit include directories
-set(RDKIT_LIB_DIR "" CACHE STRING "Rdkit librart dir")
+# external options -- rdkix include directories
+set(RDKIX_LIB_DIR "" CACHE STRING "Rdkix librart dir")
 
 set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(LIB_SOURCE_DIR "${SOURCE_DIR}/RingDecomposerLib")
@@ -56,8 +56,8 @@ if(BUILD_MINIMAL_EXAMPLE)
   add_subdirectory("${SOURCE_DIR}/MinimalExample")
 endif()
 
-if(BUILD_RDKIT_BENCHMARK)
-  add_subdirectory("${SOURCE_DIR}/RDKitBenchmark")
+if(BUILD_RDKIX_BENCHMARK)
+  add_subdirectory("${SOURCE_DIR}/RDKixBenchmark")
 endif()
 
 if(BUILD_PYTHON_WRAPPER)

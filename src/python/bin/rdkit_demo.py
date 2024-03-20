@@ -16,14 +16,14 @@
 # Unique Ring Families and Other Cycle Bases.
 # J. Chem. Inf. Model., 2017, 57 (2), pp 122-126
 
-## @file rdkit_demo.py
+## @file rdkix_demo.py
 ## @brief This file containes simple demo for using the
 ## Python wrapper
-## of the RingDecomposerLib together with RDKit.
+## of the RingDecomposerLib together with RDKix.
 ##
 ## usage:
 ##
-##     rdkit_demo.py --input <input_file> [--output]
+##     rdkix_demo.py --input <input_file> [--output]
 ##
 ## The program takes as input a molecule file
 ## (.smi or .sdf) and reads in every molecule and
@@ -42,18 +42,18 @@ import sys
 
 import py_rdl
 
-import rdkit.Chem
-import rdkit.Chem.AllChem
-import rdkit.Chem.Draw
+import rdkix.Chem
+import rdkix.Chem.AllChem
+import rdkix.Chem.Draw
 
 
 def analyze_molecule(molecule):
     data = py_rdl.Calculator.get_calculated_result(
                molecule.GetBonds(),              # pass edges
-               rdkit.Chem.Bond.GetBeginAtom,     # get first atom
-               rdkit.Chem.Bond.GetEndAtom,       # get second atom
-               rdkit.Chem.Atom.GetIdx,           # identify atom
-               rdkit.Chem.Bond.GetIdx            # identify edge
+               rdkix.Chem.Bond.GetBeginAtom,     # get first atom
+               rdkix.Chem.Bond.GetEndAtom,       # get second atom
+               rdkix.Chem.Atom.GetIdx,           # identify atom
+               rdkix.Chem.Bond.GetIdx            # identify edge
            )
 
     print('URFs')
@@ -121,9 +121,9 @@ def get_distinct_colors(nof_colors, h=0.0, s=0.8, v=0.4, a=1.0, variation=0.2):
 
 
 def draw_molecule(mol, filename, higlights):
-    rdkit.Chem.AllChem.Compute2DCoords(mol)
+    rdkix.Chem.AllChem.Compute2DCoords(mol)
 
-    drawer = rdkit.Chem.Draw.rdMolDraw2D.MolDraw2DSVG(200, 200)
+    drawer = rdkix.Chem.Draw.rdMolDraw2D.MolDraw2DSVG(200, 200)
     drawer.DrawMolecule(mol, highlightAtoms=None, highlightBonds=highlights,
         highlightAtomColors=None, highlightBondColors=highlights)
 
@@ -135,7 +135,7 @@ def draw_molecule(mol, filename, higlights):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser('RDKit ring family example')
+    parser = argparse.ArgumentParser('RDKix ring family example')
     parser.add_argument('--input', type=str, required=True,
                         help='Input file (.smi or .sdf)')
     parser.add_argument('--output', action='store_true',
@@ -146,9 +146,9 @@ if __name__ == '__main__':
     ext = os.path.splitext(args.input)[1]
 
     if ext == '.smi':
-        supplier = rdkit.Chem.SmilesMolSupplier(args.input, titleLine=False)
+        supplier = rdkix.Chem.SmilesMolSupplier(args.input, titleLine=False)
     elif ext == '.sdf':
-        supplier = rdkit.Chem.SDMolSupplier(args.input)
+        supplier = rdkix.Chem.SDMolSupplier(args.input)
     else:
         raise ValueError('invalid extension: %s' % ext)
 

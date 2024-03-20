@@ -52,7 +52,7 @@ The documentation of the Python wrapper can be found here:
 @ref py_rdl.Calculator.Calculator, @ref py_rdl.Graph.Graph
 
 Example scripts that show how to use the Python wrapper
-together with RDKit can be found here: @subpage example_rd, @subpage example_rd2
+together with RDKix can be found here: @subpage example_rd, @subpage example_rd2
 
 A minimal example im Python looks like this:
 
@@ -76,9 +76,9 @@ A minimal example for the C library is:
 
 /*!
 
-@page example_rd Minimal RDKit Example
+@page example_rd Minimal RDKix Example
 
-A minimal example for using the RingDecomposerLib together with RDKit is:
+A minimal example for using the RingDecomposerLib together with RDKix is:
 
 \include minimal_example.py
 
@@ -86,10 +86,10 @@ A minimal example for using the RingDecomposerLib together with RDKit is:
 
 /*!
 
-@page example_rd2 RDKit Example
+@page example_rd2 RDKix Example
 
-A more complex examplefor using the RingDecomposerLib together with RDKit is:
+A more complex examplefor using the RingDecomposerLib together with RDKix is:
 
-\include rdkit_demo.py
+\include rdkix_demo.py
 
 */
